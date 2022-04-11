@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Register = () => {
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(firstName, lastName, email, password);
+  }
+
   return (
   <div>
     <div className="d-flex justify-content-center">
@@ -9,12 +19,24 @@ const Register = () => {
       </div>
       <div className="register-form">
         <h1 className="form-title display-3">Register</h1>
-        <form id="register">
-          <label className="form-label" htmlFor="first-name">First Name</label>
-          <input id="first-name" type="text" className="form-control" placeholder="Enter Your First Name.." />
-          <label className="form-label" htmlFor="first-name">First Name</label>
-          <input id="first-name" type="text" className="form-control" placeholder="Enter Your First Name.." />
-
+        <form id="register" onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="first-name">First Name</label>
+            <input id="first-name" type="text" className="form-control" placeholder="Enter Your First Name.."  onChange={(e)=>setfirstName(e.target.value)}/>
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="last-name">Last Name</label>
+            <input id="last-name" type="text" className="form-control" placeholder="Enter Your Last Name.." onChange={(e)=>setlastName(e.target.value)} />
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="email">Email</label>
+            <input id="email" type="email" className="form-control" placeholder="Enter Your email address.." onChange={(e)=>setEmail(e.target.value)}/>
+          </div>
+          <div className="mb-3">
+            <label className="form-label" htmlFor="password">Password</label>
+            <input id="password" type="password" className="form-control" placeholder="Enter Your password.." onChange={(e)=>setPassword(e.target.value)} required/>
+          </div>
+          <input type="submit" className="btn btn-primary form-control" value="Register"/>
         </form>
       </div>
     </div>
