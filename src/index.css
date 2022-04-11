@@ -87,11 +87,12 @@ body {
 .navbar {
   padding: 1rem 3rem;
   background-color: #0d47a1 !important;
+  width: 100%;
 }
 
 .form-image {
-  min-width: 800px;
-  min-height: 800px;
+  min-width: 500px;
+  min-height: 500px;
 }
 
 .register-form {

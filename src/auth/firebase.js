@@ -1,25 +1,19 @@
-import firebase from "firebase/compat/app"
-import "firebase/compat/auth"
-import "firebase/compat/firestore"
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
-    apiKey: "AIzaSyA3fORBjk_8v0ooe9zQKTGTOHVJ-ogtvII",
-    authDomain: "movie-search-df2f6.firebaseapp.com",
-    projectId: "movie-search-df2f6",
-    storageBucket: "movie-search-df2f6.appspot.com",
-    messagingSenderId: "380572151542",
-    appId: "1:380572151542:web:f1cd533ea359297f9cc6d7"
-  };
+  apiKey: "AIzaSyCXhVo3ua5cnpnG4IzIo23czXD-C0F9d8Q",
+  authDomain: "movie-app-mnrgdkl.firebaseapp.com",
+  projectId: "movie-app-mnrgdkl",
+  storageBucket: "movie-app-mnrgdkl.appspot.com",
+  messagingSenderId: "207634310592",
+  appId: "1:207634310592:web:f0b2ceb049ffc3f6ef9425"
+};
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
-  const FireBaseApp = firebase.initializeApp(firebaseConfig);
-
-  const db = FireBaseApp.firestore();
-
-
-  const auth = firebase.auth();
-
-  const provider = new firebase.auth.GoogleAuthProvider();
-  
-  export default db;
-  export {auth, provider};
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);

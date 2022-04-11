@@ -22,15 +22,15 @@ const Register = () => {
         <form id="register" onSubmit={handleSubmit}>
           <div className="mb-3">
             <label className="form-label" htmlFor="first-name">First Name</label>
-            <input id="first-name" type="text" className="form-control" placeholder="Enter Your First Name.."  onChange={(e)=>setfirstName(e.target.value)}/>
+            <input id="first-name" type="text" className="form-control" placeholder="Enter Your First Name.."  onChange={(e)=>setfirstName(e.target.value)} required/>
           </div>
           <div className="mb-3">
             <label className="form-label" htmlFor="last-name">Last Name</label>
-            <input id="last-name" type="text" className="form-control" placeholder="Enter Your Last Name.." onChange={(e)=>setlastName(e.target.value)} />
+            <input id="last-name" type="text" className="form-control" placeholder="Enter Your Last Name.." onChange={(e)=>setlastName(e.target.value)} required />
           </div>
           <div className="mb-3">
             <label className="form-label" htmlFor="email">Email</label>
-            <input id="email" type="email" className="form-control" placeholder="Enter Your email address.." onChange={(e)=>setEmail(e.target.value)}/>
+            <input id="email" type="email" className="form-control" placeholder="Enter Your email address.." onChange={(e)=>setEmail(e.target.value)} required/>
           </div>
           <div className="mb-3">
             <label className="form-label" htmlFor="password">Password</label>
