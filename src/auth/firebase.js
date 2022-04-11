@@ -4,6 +4,7 @@ import {
   getAuth, 
   GoogleAuthProvider, 
   signInWithEmailAndPassword, 
+  signInWithRedirect, 
   signOut
 } from "firebase/auth";
 import { Navigate } from "react-router-dom";
@@ -56,13 +57,17 @@ export const signIn = async (email, password, navigate) => {
   }
 }
 
-export const logOut = () => {
-  const navigate = Navigate();
+export const logOut = (navigate) => {
   signOut(auth);
   alert("You have been logged out");
   navigate("/login");
 }
 
 
-const provider = new GoogleAuthProvider();
+export const googleSignIn = async (navigate) => {
+  const provider = new GoogleAuthProvider();
+  provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
+  signInWithRedirect(auth, provider);
+  navigate("/");
+};
 
