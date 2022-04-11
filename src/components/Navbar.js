@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { logOut } from "../auth/firebase";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ const Navbar = () => {
               ) : <button className="ms-2 btn btn-outline-light"
                           onClick={()=> navigate("/login")}>Login</button>} 
               {currentUser ? (
-                <button className="ms-2 btn btn-outline-light">Logout</button>) : (
+                <button className="ms-2 btn btn-outline-light"
+                        onClick={()=> logOut()}>Logout</button>) : (
                 <button className="ms-2 btn btn-outline-light"
                         onClick={()=> navigate("/register")}>Register</button>)}
             </div>
