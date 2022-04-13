@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { logOut } from "../auth/firebase";
+import { AuthContext } from "../context/AuthContext";
 
 const Navbar = () => {
   const navigate = useNavigate();
-  // const currentUser = {displayName: "munir gedikli"}
-  const currentUser = null;
-  const isLoggedIn = currentUser !== null;
+  const {currentUser} = useContext(AuthContext)
   return (
     <div>
       <nav className="navbar navbar-expand-lg">
@@ -15,7 +14,7 @@ const Navbar = () => {
             <h4>React Movie App</h4>
           </Link>
             <div className="d-flex text-white align-items-center">
-              {isLoggedIn ? (
+              {currentUser ? (
                 <h5 className="mb-0 text-capitalize">
                   {currentUser?.displayName}
                 </h5>
@@ -23,7 +22,7 @@ const Navbar = () => {
                           onClick={()=> navigate("/login")}>Login</button>} 
               {currentUser ? (
                 <button className="ms-2 btn btn-outline-light"
-                        onClick={()=> logOut(navigate)}>Logout</button>) : (
+                        onClick={()=> logOut()}>Logout</button>) : (
                 <button className="ms-2 btn btn-outline-light"
                         onClick={()=> navigate("/register")}>Register</button>)}
             </div>
