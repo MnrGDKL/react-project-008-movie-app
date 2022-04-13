@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 
 
@@ -8,11 +9,12 @@ const defaultImage =
 
 const MovieCard = ({title, poster_path, overview, vote_average}) => {
   const {currentUser} = useContext(AuthContext);
+  let navigate = useNavigate();
 
   return (
   <div>
-    <div className="movie">
-      
+    <div className="movie" onClick={()=> currentUser ? navigate("/details")}>
+
       <img src={poster_path ? IMG_API + poster_path : defaultImage} alt="" />
 
       <div className="d-flex align-items-baseline justify-content-between p-1 text-white">
