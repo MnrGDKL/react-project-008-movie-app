@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { googleSignIn, signIn } from "../auth/firebase";
+import { signIn, signUpProvider } from "../auth/firebase";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -11,6 +11,11 @@ const Login = () => {
     e.preventDefault();
     signIn(email, password, navigate);
   }
+
+  const handleProviderLogin = () => {
+    signUpProvider(navigate);
+  }
+
 
   return (
     <div>
@@ -31,7 +36,7 @@ const Login = () => {
             </div>
             <input type="submit" className="btn btn-primary form-control" value="Login"/>
           </form>
-          <button className="btn btn-primary form-control" onClick={()=>googleSignIn(navigate)}> Continue with Google</button>
+          <button className="btn btn-primary form-control" onClick={handleProviderLogin}> Continue with Google</button>
         </div>
       </div>
     </div>);
