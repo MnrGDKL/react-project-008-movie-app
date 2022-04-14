@@ -1,4 +1,4 @@
-<h2>Please try my <em>"Movie Project"</em> Project from👉<a href="https://movie-app-mnrgdkl.herokuapp.com/" target="blank" rel="noopener noreferrer"> here</a> </h2>
+<h2>Please try my <em>"Movie Project"</em> from👉<a href="https://movie-app-mnrgdkl.herokuapp.com/" target="blank" rel="noopener noreferrer"> here</a> </h2>
 
 <h4> Here is the keys features for <em> firebase </em> and <em> themoviedb </em>.  </h4>
   <p> REACT_APP_apiKey= </p>
